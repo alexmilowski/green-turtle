@@ -8,12 +8,12 @@
 <xsl:param name="version.minor"/>
 <xsl:param name="version.release"/>
    
-<xsl:output method="xml" doctype-public="-//Apple//DTD PLIST 1.0//EN" doctype-system="http://www.apple.com/DTDs/PropertyList-1.0.dtd"/>
+<xsl:output method="xml" doctype-public="-//Apple//DTD PLIST 1.0//EN" doctype-system="http://www.apple.com/DTDs/PropertyList-1.0.dtd" indent="yes"/>
    
-<xsl:template match="string[.='$version.major.minor'">
+<xsl:template match="string[.='$version.major.minor']">
    <string><xsl:value-of select="$version.major"/>.<xsl:value-of select="$version.minor"/></string>
 </xsl:template>
-<xsl:template match="string[.='$version.release'">
+<xsl:template match="string[.='$version.release']">
    <string><xsl:value-of select="$version.release"/></string>
 </xsl:template>
 <xsl:template match="node()|@*">
