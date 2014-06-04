@@ -421,7 +421,19 @@ TurtleParser.prototype.parseObject = function(subject,predicate,text) {
    }
    var match = this.parseLiteral(text);
    if (match) {
-      this.addTriple(subject,predicate,{ type: match.type ? match.type : TurtleParser.plainLiteralURI, value: match.literal, language: match.language});
+      var value = match.literal;
+      if (match.type=="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral") {
+         var xml = "<root>"+match.literal+"</root>";
+         var parser = new DOMParser();
+         var doc = parser.parseFromString(xml,"application/xml");
+         value = doc.documentElement.childNodes;
+      } else if (match.type=="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML") {
+         var xml = "<html><head/><body>"+match.literal+"</body></html>";
+         var parser = new DOMParser();
+         var doc = parser.parseFromString(xml,"text/html");
+         value = doc.body.childNodes;
+      }
+      this.addTriple(subject,predicate,{ type: match.type ? match.type : TurtleParser.plainLiteralURI, value: value, language: match.language});
       return match.remaining;
    }
    this.reportError("Terminating: Cannot parse literal at "+text.substring(0,20));
