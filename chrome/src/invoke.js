@@ -9,7 +9,7 @@ function getTransferSubject(subjects,subject) {
       tsnode.predicates[predicate] = tpnode;
       for (var i=0; i<pnode.objects.length; i++) {
          var object = pnode.objects[i];
-         if (object.type==RDFaProcessor.XMLLiteralURI || object.type==RDFaProcessor.HTMLLiteralURI) {
+         if (object.type==RDFaProcessor.XMLLiteralURI) {
             var serializer = new XMLSerializer();
             var value = "";
             for (var x=0; x<object.value.length; x++) {
@@ -19,6 +19,9 @@ function getTransferSubject(subjects,subject) {
                   value += object.value[x].nodeValue;
                }
             } 
+            tpnode.objects.push({ type: object.type, value: value});
+         } else if (object.type==RDFaProcessor.HTMLLiteralURI) {
+            var value = object.value.length==0 ? "" : object.value[0].parentNode.innerHTML;
             tpnode.objects.push({ type: object.type, value: value});
          } else {
             tpnode.objects.push({ type: object.type, value: object.value});

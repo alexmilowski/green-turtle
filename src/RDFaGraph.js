@@ -306,6 +306,9 @@ RDFaSubject.prototype.toObject = function() {
                }
             } 
             p.objects.push({ type: object.type, value: value, language: object.language });
+         } else if (object.type==RDFaProcessor.HTMLLiteralURI) {
+            var value = object.value.length==0 ? "" : object.value[0].parentNode.innerHTML;
+            p.objects.push({ type: object.type, value: value, language: object.language });
          } else {
             p.objects.push({ type: object.type, value: object.value, language: object.language });
          }
@@ -413,6 +416,13 @@ RDFaPredicate.prototype.toString = function(options) {
             }
          }
          s += '"""'+value.replace(/"""/,"\\\"\\\"\\\"")+'"""^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>';
+      } else if (this.objects[i].type=="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML") {
+         // We can use innerHTML as a shortcut from the parentNode if the list is not empty
+         if (this.objects[i].value.length==0) {
+            s += '""""""^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML>';
+         } else {
+            s += '"""'+this.objects[i].value[0].parentNode.innerHTML.replace(/"""/,"\\\"\\\"\\\"")+'"""^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML>';
+         }
       } else {
          var l = this.objects[i].value;
          if (l.indexOf("\n")>=0 || l.indexOf("\r")>=0) {

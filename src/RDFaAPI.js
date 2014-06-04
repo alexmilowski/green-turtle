@@ -427,7 +427,7 @@ DocumentData.prototype.merge = function(graph,options) {
                      var object = pnode.objects[i];
                      var toAdd = [];
                      for (var j=0; j<targetPredicate.objects.length; j++) {
-                        if (object.type==RDFaProcessor.XMLLiteralURI && (targetPredicate.objects[j].type!=object.type || targetPredicate.objects[j].value!==object.value)) {
+                        if ((object.type==RDFaProcessor.XMLLiteralURI || object.type==RDFaProcessor.HTMLLiteralURI) && (targetPredicate.objects[j].type!=object.type || targetPredicate.objects[j].value!==object.value)) {
                            toAdd.push(object);
                         } else if (targetPredicate.objects[j].type!=object.type || targetPredicate.objects[j].value==object.value) {
                            toAdd.push(object);
