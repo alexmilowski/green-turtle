@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="green-turtle" default="build" basedir=".">
+<property file="version.properties"/>
+<property name="dist.dir" location="build"/>
+<property name="src.dir" location="src"/>
+<property name="version.label" value="${version.major}.${version.minor}.${version.release}"/>
+<property name="dist.dir" location="build"/>
+<property name="product.label" value="green-turtle-${chrome.version.label}"/>
+   
+
+<target name="clean">
+<delete dir="${dist.dir}"/>
+</target>
+
+<target name="build" depends="web"/>
+
+<target name="web">
+   <delete file="${dist.dir}/RDFa.${version.label}.js"/>
+   <concat destfile="${dist.dir}/RDFa.${version.label}.js">
+   <string>/** @preserve green-turtle version ${version.label} Copyright (c) 2011-2014, R. Alexander Milowski &lt;alex@milowski.com> All rights reserved. */
+/**         
+</string>
+      <file file="license.txt"/>
+      <string>*/
+</string>
+   <file file="${src.dir}/RDFa.prolog.js"/>
+   <string>
+      env.version = "${version.label}";
+   </string>
+    <file file="${src.dir}/URI.js"/>
+   <file file="${src.dir}/RDFaProcessor.js"/>
+   <file file="${src.dir}/RDFaGraph.js"/>
+   <file file="${src.dir}/GraphRDFaProcessor.js"/>
+   <file file="${src.dir}/RDFaAPI.js"/>
+   <file file="${src.dir}/TurtleParser.js"/>
+   <file file="${src.dir}/Microdata.js"/>
+   <file file="${src.dir}/RDFa.epilogue.js"/>
+   <file file="${src.dir}/RDFa.invoke.js"/>
+   </concat>
+
+   <delete file="${dist.dir}/RDFaProcessor.${version.label}.js"/>
+   <concat destfile="${dist.dir}/RDFaProcessor.${version.label}.js">
+      <string>/** @preserve green-turtle version ${version.label} Copyright (c) 2011-2013, R. Alexander Milowski &lt;alex@milowski.com> All rights reserved. */
+/**         
+</string>
+      <file file="license.txt"/>
+      <string>*/
+</string>
+      <file file="${src.dir}/URI.js"/>
+      <file file="${src.dir}/RDFaProcessor.js"/>
+      <file file="${src.dir}/RDFaGraph.js"/>
+      <file file="${src.dir}/GraphRDFaProcessor.js"/>
+   </concat>
+   
+   <echo>Minifying RDFa.js ...</echo>
+   <java jar="tools/closure-compiler-20140508.jar" fork="true">
+      <arg value="--js"/>
+      <arg file="${dist.dir}/RDFa.${version.label}.js"/>
+      <arg value="--js_output_file"/>
+      <arg file="${dist.dir}/RDFa.min.${version.label}.js"/>
+   </java>
+   
+   <echo>Minifying RDFaProcessor.js ...</echo>
+   <java jar="tools/closure-compiler-20140508.jar" fork="true">
+      <arg value="--js"/>
+      <arg file="${dist.dir}/RDFaProcessor.${version.label}.js"/>
+      <arg value="--js_output_file"/>
+      <arg file="${dist.dir}/RDFaProcessor.min.${version.label}.js"/>
+   </java>
+   
+</target>
+
+</project>

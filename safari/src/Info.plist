@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Alex Milowski</string>
 	<key>Builder Version</key>
-	<string>9537.71</string>
+	<string>9537.76.4</string>
 	<key>CFBundleDisplayName</key>
 	<string>Green Turtle</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>$version.major.minor</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$version.release</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>

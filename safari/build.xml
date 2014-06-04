@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="green-turtle" default="build" basedir=".">
+<property file="../version.properties"/>
+<property name="build.dir" location="../build"/>
+<property name="src.dir" location="src"/>
+<property name="ext.dir" location="green-turtle.safariextension"/>
+<property name="version.label" value="${version.major}.${version.minor}.${version.release}"/>
+   
+
+<target name="build" depends="safari"/>
+
+<target name="safari">
+   <delete dir="${ext.dir}"/>
+   <mkdir dir="${ext.dir}"/>
+   <copy file="${build.dir}/RDFa.min.${version.label}.js" todir="${ext.dir}"/>
+   <copy file="${src.dir}/bootstrap.js" todir="${ext.dir}"/>
+   <xslt in="${src.dir}/Info.plist" out="${ext.dir}/Info.plist" style="plist.xsl">
+      <param name="version.major" expression="${version.major}"/>
+      <param name="version.minor" expression="${version.minor}"/>
+      <param name="version.release" expression="${version.release}"/>
+   </xslt>
+</target>
+
+</project>
