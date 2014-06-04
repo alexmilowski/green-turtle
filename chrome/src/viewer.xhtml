@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Triple Viewer</title>
+<link rel="stylesheet" type="text/css" href="viewer.css"/>
+<script type="text/javascript" src="RDFaGraph.js">//</script>
+<script type="text/javascript" src="viewer.js">//</script>
+<script type="text/javascript" src="jit.js">//</script>
+</head>
+<body>
+<div id="container">
+<div id="graphviz">
+<p class="toolbar">
+  <button id="show-turtle">Show Turtle</button>
+  <button id="s1">800 x 300</button>
+  <button id="s2">800 x 500</button>
+  <button id="s3">800 x 800</button>
+</p>
+<div id="turtle-display">
+   <pre id="turtle-output"/>
+</div>
+<div id="visualization"><div id="log"/></div>
+  <div id="info"></div>
+</div>
+<div id="no-graphviz">
+  <p>There were too many triples harvested from this document to render.</p>
+  <button id="visualize">Render Visualization</button>
+</div>
+   <p id="status"><span id="wait">Waiting for triples from document...</span><button id="stop">Stop</button></p>   
+<div id="inspector">
+<div id="table">
+<table>
+<thead>
+<tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
+</thead>
+<tbody id="triples"/>
+</table>
+<table>
+   <thead>
+      <tr><th>Prefix</th><th>URI</th></tr>
+   </thead>
+   <tbody id="prefixes"/>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

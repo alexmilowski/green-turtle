@@ -1,0 +1,93 @@
+body {
+   font-family: Arial;
+}
+
+tbody {
+   font-family: monospace;
+}
+
+#log {
+    font-size:1.0em;
+    font-weight:bold;
+    color:#23A4FF;
+}
+
+.toolbar {
+   margin: 0px;
+   padding: 0px;
+   margin-bottom: 5px;
+}
+.toolbar button {
+   font-size:8pt;
+}
+
+#container {
+   min-width: 910px;
+}
+
+#turtle-display {
+   display: none;
+}
+
+#turtle-display {
+   border: 1px solid rgb(200,200,200);
+   padding: 0.5em;
+}
+
+#visualization {
+    border: 1px solid rgb(200,200,200);
+    min-height: 300px;
+    padding: 5px;
+    overflow:hidden;
+}
+
+#visualization-canvaswidget {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#inspector {
+   display: none;
+   margin-top: 10px;
+   border-top: 2px solid rgb(100,100,100);
+   font-size: 10pt;   
+   padding-left: 2%;
+   padding-right: 2%;
+}
+
+#info {
+}
+
+#graphviz {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#no-graphviz {
+    display: none;
+}
+
+#table table {
+   width: 100%;
+}
+
+#table thead {
+   background-color: rgb(100,100,100);
+}
+
+#table tbody .even {
+   background-color: rgb(220,220,220);
+}
+
+#table tbody .selected {
+   background-color: rgb(255,150,150);
+}
+
+#table tbody .selected.even {
+   background-color: rgb(255,100,100);
+}
+
+#status #stop {
+   margin-left: 1em;
+}

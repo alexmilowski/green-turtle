@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="green-turtle" default="build" basedir=".">
+<property file="../version.properties"/>
+<property file="version.properties"/>
+<property name="build.dir" location="../build"/>
+<property name="main.src.dir" location="../src"/>
+<property name="src.dir" location="src"/>
+<property name="version.label" value="${version.major}.${version.minor}.${version.release}"/>
+<property name="dist.dir" location="build"/>
+<property name="chrome.version.label" value="${chrome.version.major}.${chrome.version.minor}.${chrome.version.release}"/>
+<property name="product.label" value="green-turtle-${chrome.version.label}"/>
+   
+
+<target name="build" depends="chrome"/>
+   
+<target name="clean">
+   <delete dir="${dist.dir}"/>
+</target>
+
+<target name="chrome">
+   <delete file="${dist.dir}/${product.label}.zip"/>
+   <property name="install.dir" location="${dist.dir}/${product.label}"/>
+   <delete dir="${install.dir}"/>
+   <mkdir dir="${install.dir}"/>
+   <concat destfile="${install.dir}/license.txt">
+      <string>green-turtle version ${version.label}, extension version ${chrome.version.label}
+Copyright (c) 2011-2014, R. Alexander Milowski &lt;alex@milowski.com> All rights reserved.
+</string>
+      <file file="../license.txt"/>
+   </concat>
+<echo file="${install.dir}/manifest.json">
+{
+   "name": "Green Turtle RDFa",
+   "version": "${chrome.version.label}",
+   "manifest_version": 2,
+   "description": "An implementation of RDFa processing in the browser.",
+   "background": {
+      "scripts": ["background.js"]
+   },
+   "page_action" : {
+      "default_icon": "turtle-32x32.png",
+      "default_title": "Show Triples"
+   },
+   "content_scripts": [ 
+      {
+         "matches": [ "&lt;all_urls>" ],
+         "js": [ "harvest.js" ]
+      }
+   ],
+   "options_page" : "options.html",
+   "permissions": [
+     "tabs"
+  ],
+  "web_accessible_resources": [
+     "RDFa.js"
+  ]
+
+}
+</echo>
+<copy file="${src.dir}/background.js" todir="${install.dir}"/>
+<copy file="${src.dir}/viewer.xhtml" todir="${install.dir}"/>
+<copy file="${src.dir}/viewer.js" todir="${install.dir}"/>
+<copy file="${src.dir}/viewer.css" todir="${install.dir}"/>
+<copy file="${main.src.dir}/RDFaGraph.js" todir="${install.dir}"/>
+<copy file="${src.dir}/jit.js" todir="${install.dir}"/>
+<copy file="${src.dir}/turtle-32x32.png" todir="${install.dir}"/>
+<copy file="${src.dir}/options.html" todir="${install.dir}"/>
+<copy file="${src.dir}/options.js" todir="${install.dir}"/>
+<concat destfile="${install.dir}/harvest.js">
+<string>
+var version = {
+   extension: "${chrome.version.label}",
+   greenTurtle: "${version.label}"
+};
+</string>
+<file file="${main.src.dir}/URI.js"/>
+<file file="${main.src.dir}/RDFaProcessor.js"/>
+<file file="${main.src.dir}/GraphRDFaProcessor.js"/>
+<file file="${main.src.dir}/RDFaGraph.js"/>
+<file file="${src.dir}/invoke.js"/>
+</concat>
+   
+<concat destfile="${install.dir}/RDFa.js">
+   <string>/** @preserve green-turtle version ${version.label} Copyright (c) 2011-2014, R. Alexander Milowski &lt;alex@milowski.com> All rights reserved. */
+/**         
+      </string>
+      <file file="../license.txt"/>
+      <string>*/
+ </string>
+   <file file="${main.src.dir}/RDFa.prolog.js"/>
+   <string>
+      env.version = "${version.label}";
+   </string>
+   <file file="${main.src.dir}/URI.js"/>
+   <file file="${main.src.dir}/RDFaProcessor.js"/>
+   <file file="${main.src.dir}/RDFaGraph.js"/>
+   <file file="${main.src.dir}/GraphRDFaProcessor.js"/>
+   <file file="${main.src.dir}/RDFaAPI.js"/>
+   <file file="${main.src.dir}/TurtleParser.js"/>
+   <file file="${main.src.dir}/Microdata.js"/>
+   <file file="${main.src.dir}/RDFa.epilogue.js"/>
+   <file file="${src.dir}/inject.js"/>
+</concat>
+   
+
+
+<zip destfile="${dist.dir}/${product.label}.zip"
+     basedir="${install.dir}"/>
+</target>
+
+</project>
