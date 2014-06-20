@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>RDFa Test Suite</title>
+      <link rel="earl" type="text/turtle" href="earl-prolog.ttl"/>
+      <link rel="stylesheet" type="text/javascript" href="test.css"/>
+      <script type="text/javascript" src="/build/RDFa.js"></script>
+      <script type="text/javascript" src="HTTP.js"></script>
+      <script type="text/javascript" src="dateformat.js"></script>
+      <script type="text/javascript" src="TestHarness.js"></script>
+   </head>
+   <body>
+      <p><input size="3" id="only"/><select id="source">
+         <option selected="selected" value="/tests/cache/html5/manifest.ttl">HTML5</option>
+         <option value="/tests/cache/xhtml5/manifest.ttl">XHTML5</option>
+         <option value="/tests/cache/html4/manifest.ttl">HTML4</option>
+         <option value="/tests/cache/xhtml1/manifest.ttl">XHTML1</option>
+         <option value="/tests/cache/xml/manifest.ttl">XML</option>
+      </select>
+         <button id="go">Test</button>
+      </p>
+      <p id="summary"/>
+      <h2>Tests</h2>
+      <table id="output">
+         <tr><th>Test</th><th>Parsed</th><th>Outcome</th><th>Details</th></tr>
+      </table>
+      <h2>EARL</h2>
+      <textarea id="earl" cols="80" rows="20"/>
+      <iframe id="loader" style="display: none;"/>
+   </body>
+</html>

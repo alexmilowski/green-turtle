@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>RDFa Test Suite Harness</title>
+      <link rel="stylesheet" type="text/css" href="harness.css"/>
+      <script type="text/javascript" src="/build/RDFa.js"></script>
+      <script type="text/javascript" src="/HTTP.js"></script>
+      <script type="text/javascript" src="/harness.js"></script>
+   </head>
+   <body onload="harness.init(function() { harness.start();}); ">
+      <p id="message"/>
+      <button id="stop">Stop</button>
+      <table>
+         <thead><tr><th>Host</th><th>Test</th><th>Status</th><th>Details</th></tr></thead>
+         <tbody id="output">
+         </tbody>
+      </table>
+      <iframe id="loader" style="display: none;"/>
+   </body>
+</html>

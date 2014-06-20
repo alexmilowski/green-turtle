@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+       <title>Test Suite Download</title>
+       <link rel="manifest" href="manifest.ttl"/>
+       <script type="text/javascript" src="/build/RDFa.js"></script>
+       <script type="text/javascript" src="generate-download.js"></script>
+    </head>
+    <body>
+       <p><select id="source">
+          <option selected="selected" value="/tests/cache/html5/manifest.ttl">HTML5</option>
+          <option value="/tests/cache/xhtml5/manifest.ttl">XHTML5</option>
+          <option value="/tests/cache/html4/manifest.ttl">HTML4</option>
+          <option value="/tests/cache/xhtml1/manifest.ttl">XHTML1</option>
+          <option value="/tests/cache/xml/manifest.ttl">XML</option>
+       </select>
+       <button id="go">Generate</button>
+       </p>
+       <textarea id="script" cols="80" rows="20"/>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.xproclet.org/V/Server/" xmlns:xproc="http://www.xproclet.org/V/XProc/">
+   
+   <client protocol="FILE"/>
+   <client protocol="HTTP"/>
+   
+   <define name="libraries">
+      <library href="sparql-service/dist/sparql-service.jar"/>   
+      <library href="sparql-service/lib/jena-arq-2.10.1.jar"/>
+      <library href="sparql-service/lib/jena-core-2.10.1.jar"/>
+      <library href="sparql-service/lib/jena-iri-0.9.6.jar"/>
+      <library href="sparql-service/lib/jena-tdb-0.10.1.jar"/>
+      <library href="sparql-service/lib/log4j-1.2.16.jar"/>
+      <library href="sparql-service/lib/slf4j-api-1.6.4.jar"/>
+      <library href="sparql-service/lib/slf4j-log4j12-1.6.4.jar"/>
+      <library href="sparql-service/lib/xercesImpl-2.11.0.jar"/>
+      <library href="sparql-service/lib/xml-apis-1.4.01.jar"/>
+   </define>
+   
+   <server protocol="HTTP" address="*" port="8888">
+      <host name="localhost">
+         <route match="/sparql/new" mode="equals" class="com.milowski.sparql.NewContextResource" ref="libraries"/>
+         <route match="/sparql/query/{id}" mode="equals" class="com.milowski.sparql.QueryContextResource" ref="libraries"/>
+         <content match="/test-suite" href="http://rdfa.info/test-suite"/>
+         <content match="/tests" href="tests"/>
+         <content match="/build" href="../build"/>
+         <content match="/src" href="../src"/>
+         <content match="/rawtests" href="../tests"/>
+         <content match="" href="docs"/>
+      </host>
+   </server>
+</component>
