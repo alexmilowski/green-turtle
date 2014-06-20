@@ -1,0 +1,55 @@
+@prefix : <http://www.milowski.com/testing/> .
+<#labeled_blank_node_subject> 
+:from ( _:s ); :to (_:b1).
+<#labeled_blank_node_object> 
+:from ( _:o ); :to (_:b1).
+<#labeled_blank_node_with_PN_CHARS_BASE_character_boundaries>
+:from ( _:AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿿 ); :to ( _:b1).
+<#labeled_blank_node_with_leading_underscore> 
+:from ( _:_ ); :to (_:b1).
+<#labeled_blank_node_with_leading_digit> 
+:from ( _:0 ); :to (_:b1).
+<#labeled_blank_node_with_non_leading_extras> 
+:from ( _:a·̀ͯ‿.⁀ ); :to (_:b1).
+<#anonymous_blank_node_subject> 
+:from ( _:1 ); :to (_:b1).
+<#anonymous_blank_node_object> 
+:from ( _:1 ); :to (_:b1).
+<#sole_blankNodePropertyList>
+:from ( _:1 ); :to (_:b1).
+<#blankNodePropertyList_as_subject>
+:from ( _:1 ); :to (_:b1).
+<#blankNodePropertyList_as_object>
+:from ( _:1 ); :to (_:b1).
+<#blankNodePropertyList_with_multiple_triples>
+:from ( _:1 ); :to (_:b1).
+<#nested_blankNodePropertyLists>
+:from ( _:1 _:2 ); :to (_:b1 _:b2).
+<#blankNodePropertyList_containing_collection>
+:from ( _:1 _:2 ); :to (_:b1 _:el1).
+<#collection_subject>
+:from ( _:1 ); :to ( _:el1 ).
+<#collection_object>
+:from ( _:1 ); :to (_:el1).
+<#nested_collection>
+:from ( _:1 _:2); :to ( _:outerEl1 _:innerEl1 ).
+<#first>
+:from ( _:1 _:2 _:3); :to ( _:outerEl1 _:innerEl1 _:outerEl2 ).
+<#last>
+:from ( _:1 _:2 _:3); :to ( _:outerEl1 _:outerEl2 _:innerEl1 ).
+<#turtle-subm-01>
+:from ( _:1 ); :to ( _:genid1 ).
+<#turtle-subm-05>
+:from ( _:1 _:2 ); :to ( _:genid1 _:genid2 ).
+<#turtle-subm-06>
+:from ( _:1 _:2 ); :to ( _:genid1 _:genid2 ).
+<#turtle-subm-08>
+:from ( _:1 _:2 ); :to ( _:genid2 _:genid1 ).
+<#turtle-subm-10>
+:from ( _:1 ); :to ( _:genid1 ).
+<#turtle-subm-14>
+:from ( _:1 _:2 ); :to ( _:genid1 _:genid2 ).
+
+
+
+

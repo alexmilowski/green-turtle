@@ -1,0 +1,15 @@
+.pass {
+   color: green;
+}
+
+.fail {
+   color: red;
+}
+
+tr {
+   vertical-align: top;
+}
+
+tr td {
+   border-top: 1px solid rgb(200,200,200);
+}

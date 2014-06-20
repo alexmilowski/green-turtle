@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.xproclet.org/V/Server/" xmlns:xproc="http://www.xproclet.org/V/XProc/">
+   
+   <client protocol="FILE"/>
+   <client protocol="HTTP"/>
+
+   <server protocol="HTTP" address="*" port="8888">
+      <host name="localhost">
+         <content match="/tests" href="tests">
+            <map extension="ttl" type="text/turtle"/>
+         </content>
+         <content match="/build" href="../../build"/>
+         <content match="" href="./">
+            <map extension="ttl" type="text/turtle"/>
+         </content>
+      </host>
+   </server>
+</component>

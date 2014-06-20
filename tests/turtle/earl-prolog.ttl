@@ -1,0 +1,32 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:   <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<> foaf:primaryTopic <https://code.google.com/p/green-turtle/>;
+  dc:issued "{dateTime}"^^xsd:dateTime;
+  foaf:maker <http://www.milowski.com/#alex>.
+
+<http://www.milowski.com/#alex> a foaf:Person, earl:Assertor;
+  foaf:name "Alex Milowski";
+  foaf:title "Implementor";
+  foaf:homepage <http://www.milowski.com/> .
+  
+<https://code.google.com/p/green-turtle/> a earl:Software, earl:TestSubject, doap:Project;
+  doap:name "Green Turtle";
+  doap:homepage <https://code.google.com/p/green-turtle/>;
+  doap:license <http://opensource.org/licenses/BSD-3-Clause>;
+  doap:programming-language "Javascript";
+  doap:implements <http://www.w3.org/TR/turtle/>;
+  doap:developer <http://www.milowski.com/#alex>;
+  doap:maintainer <http://www.milowski.com/#alex>;
+  doap:documenter <http://www.milowski.com/#alex>;
+  doap:maker <http://www.milowski.com/#alex>;
+  dc:title           "Green Turtle" ;
+  dc:description     "Green Turtle support for parsing and load Turtle representations into graphs."@en ;
+  dc:date            "{date}"^^xsd:date ;
+  dc:creator         <http://www.milowski.com#alex> .
+
