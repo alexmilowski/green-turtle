@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Subject/Type Origins</title>
+      <script src="../build/RDFa.js">//</script>
+   </head>
+   <body vocab="http://www.example.com/">
+      <div about="_:ex1">
+         <span property="a">v1</span>
+      </div>
+      <div about="_:ex1">
+         <span property="b">v2</span>
+      </div>
+      <div resource="_:ex1">
+         <span property="c">v3</span>
+      </div>
+      <div about="_:ex1" typeof="T">
+         <span property="d">v4</span>
+      </div>
+      <div resource="_:ex1" typeof="T">
+         <span property="e">v5</span>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Microdata Test</title>
+      <script type="text/javascript" src="/build/RDFa.js"></script>
+      <script type="text/javascript" src="../build/RDFa.js"></script>
+      <script type="text/javascript">
+GreenTurtle.implementation.processors["microdata"].enabled = true;
+document.addEventListener("rdfa.loaded",function(e) {
+   console.log(document.data.graph.toString());
+},false);
+      </script>
+   </head>
+   <body>
+      <div itemscope itemtype="http://schema.org/Person">
+         <a href="alice.html" itemprop="url">Alice Jones</a>
+      </div>
+      <div itemscope itemtype="http://schema.org/Person">
+         <a href="bob.html" itemprop="url">Bob Smith</a>
+      </div>      
+      <div itemscope itemtype ="http://schema.org/Movie">
+         <h1 itemprop="name">Avatar</h1>
+         <div itemprop="director" itemscope itemtype="http://schema.org/Person">
+            Director: <span itemprop="name">James Cameron</span> (born <span itemprop="birthDate">August 16, 1954</span>)
+         </div>
+         <span itemprop="genre">Science fiction</span>
+         <a href="../movies/avatar-theatrical-trailer.html" itemprop="trailer">Trailer</a>
+      </div>   </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Embed Turtle - HTML</title>
+      <script type="text/javascript" src="../build/RDFa.js">//</script>
+      <script type="text/turtle">
+           @prefix e: <http:www.example.com/> .
+           [ e:foo "yes" ] e:rel [ e:bar "no" ] .
+      </script>
+   </head>
+   <body>
+      <p typeof="http://www.example.com/Text">A label.</p>
+      <script type="text/javascript">
+          window.addEventListener("rdfa.loaded",function() {
+             console.log(document.data.graph.toString());
+          });
+       </script>
+   </body>
+</html>

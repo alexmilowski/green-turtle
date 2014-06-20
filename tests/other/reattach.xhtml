@@ -1,0 +1,21 @@
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Tests RDFa.attach(document,true)</title>
+<script type="text/javascript" src="../build/RDFa.js">//</script>
+<script type="text/javascript">
+    var callAgain = true;
+    document.addEventListener("rdfa.loaded",function(e) {
+       if (callAgain) {
+          callAgain = false;
+          console.log("Calling RDFa.attach() again...");
+          RDFa.attach(document,true);
+       }
+    },true);
+ </script>
+</head>
+<body>
+<div prefix="e: http://example.org/" typeof="e:something"> 
+   <span property="e:name">Alex Milowski</span>
+</div>
+</body>
+</html>

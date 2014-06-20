@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Turtle Parser</title>
+       <script type="text/javascript" src="../src/URI.js"></script>
+       <script type="text/javascript" src="../src/RDFaGraph.js"></script>
+       <script type="text/javascript" src="../src/TurtleParser.js"></script>
+       <script type="text/javascript">
+window.addEventListener("load",function() {
+   document.getElementById("parse").onclick = function() {
+      var text = document.getElementById("turtle").value;
+      window.parser = new TurtleParser();
+      window.parser.parse(text);
+      if (window.parser.errorCount>0) {
+         alert("There were "+window.parser.errorCount+" errors encountered during the parse.");
+      } else {
+         TurtleParser.dumpGraph(parser.context.subjects);
+         alert("Parsed successfully!");
+      }
+   }
+},false);
+       </script>
+    </head>
+    <body>
+       <textarea id="turtle" rows="20" cols="60"></textarea><br/>
+       <button id="parse">Parse</button>
+    </body>
+</html>
