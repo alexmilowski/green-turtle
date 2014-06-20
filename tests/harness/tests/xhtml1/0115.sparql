@@ -1,0 +1,6 @@
+ASK WHERE {
+<http://localhost:8888/tests/xhtml1/0115.xhtml> <http://www.example.com/entity1> ">" .
+<http://localhost:8888/tests/xhtml1/0115.xhtml> <http://www.example.com/entity2> "Ben & Co." .
+<http://localhost:8888/tests/xhtml1/0115.xhtml> <http://www.example.com/entity3> "@" .
+<http://localhost:8888/tests/xhtml1/0115.xhtml> <http://www.example.com/entity4> "@" .
+}

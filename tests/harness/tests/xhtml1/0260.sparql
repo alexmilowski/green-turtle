@@ -1,0 +1,29 @@
+PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
+
+ASK WHERE {
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:alternate "alternate" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:appendix "appendix" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:cite "cite" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:bookmark "bookmark" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:contents "contents" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:chapter "chapter" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:copyright "copyright" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:first "first" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:glossary "glossary" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:help "help" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:icon "icon" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:index "index" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:last "last" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:license "license" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:meta "meta" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:next "next" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:prev "prev" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:previous "previous" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:section "section" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:start "start" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:stylesheet "stylesheet" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:subsection "subsection" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:top "top" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:up "up" .
+<http://localhost:8888/tests/xhtml1/0260.xhtml> xhv:p3pv1 "p3pv1" .
+}

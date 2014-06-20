@@ -1,0 +1,4 @@
+PREFIX dc: <http://purl.org/dc/terms/>
+ASK WHERE {
+  <http://localhost:8888/tests/html5/0235.html> dc:title "rdfagraph" .
+}

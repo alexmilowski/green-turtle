@@ -1,0 +1,4 @@
+# This is a negative test, no triples containing "Test" should be generated. 
+ASK WHERE {
+  <http://localhost:8888/tests/xhtml1/0140.xhtml> <_:invalid> "Test" .
+}

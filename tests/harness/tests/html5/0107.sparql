@@ -1,0 +1,4 @@
+# This test should result in a 'NO', i.e. no triples should be generated from the XHTML+RDFa input document.
+ASK WHERE {
+	<http://localhost:8888/tests/html5/0107.html> <http://www.w3.org/1999/xhtml/vocab#next> <_:1> .
+ }

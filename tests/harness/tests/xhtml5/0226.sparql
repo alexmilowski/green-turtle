@@ -1,0 +1,7 @@
+BASE <http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml5/0226.xhtml>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ASK WHERE {
+  <> rdf:value ("Foo");
+    rdf:inlist <res> .
+  <res> rdf:value ("Bar") .
+}

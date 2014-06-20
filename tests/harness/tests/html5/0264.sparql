@@ -1,0 +1,3 @@
+ASK WHERE {
+  <http://localhost:8888/tests/html5/0264.html> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.example.org> .
+}

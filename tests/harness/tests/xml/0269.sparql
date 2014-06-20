@@ -1,0 +1,4 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+ASK WHERE {
+  <http://localhost:8888/tests/xml/0269.xml> rdfs:comment "This is an RDFa test" .
+}

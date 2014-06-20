@@ -1,0 +1,6 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ASK WHERE {
+  <http://localhost:8888/tests/xhtml1/0219.xhtml> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> <_:1> .
+  <_:1> rdf:first "Foo" .
+  <_:1> rdf:rest rdf:nil .
+}

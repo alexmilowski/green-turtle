@@ -1,0 +1,8 @@
+ASK WHERE {
+    <http://www.example.org/#somebody> <http://xmlns.com/foaf/0.1/knows> <_:1> .
+    <_:1> <http://xmlns.com/foaf/0.1/name> "Ivan Herman" . 
+    <_:1> <http://xmlns.com/foaf/0.1/mailbox> <mailto:ivan@w3.org> .
+    <http://www.example.org/#somebody> <http://xmlns.com/foaf/0.1/knows> <_:2> .
+    <_:2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+    <_:2> <http://xmlns.com/foaf/0.1/name> "Mark Birbeck"  .
+}

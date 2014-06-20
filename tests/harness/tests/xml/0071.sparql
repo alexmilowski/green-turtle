@@ -1,0 +1,3 @@
+ASK WHERE {
+	<http://localhost:8888/tests/xml/0071.xml> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by-nd/3.0/> .
+}

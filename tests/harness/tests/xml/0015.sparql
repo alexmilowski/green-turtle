@@ -1,0 +1,4 @@
+ASK WHERE {
+	<http://localhost:8888/tests/xml/0015.xml> <http://purl.org/dc/elements/1.1/creator> "Fyodor Dostoevsky" .
+	<http://localhost:8888/tests/xml/0015.xml> <http://purl.org/dc/elements/1.1/source> <urn:isbn:0140449132> .
+}

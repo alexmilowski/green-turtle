@@ -1,0 +1,5 @@
+ASK WHERE {
+  <http://localhost:8888/tests/html5/0220.html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> <_:1> .
+  <_:1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://localhost:8888/tests/html5/foo> .
+  <_:1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#next> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+}
