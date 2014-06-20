@@ -5,16 +5,16 @@
    <client protocol="HTTP"/>
    
    <define name="libraries">
-      <library href="sparql-service/dist/sparql-service.jar"/>   
-      <library href="sparql-service/lib/jena-arq-2.10.1.jar"/>
-      <library href="sparql-service/lib/jena-core-2.10.1.jar"/>
-      <library href="sparql-service/lib/jena-iri-0.9.6.jar"/>
-      <library href="sparql-service/lib/jena-tdb-0.10.1.jar"/>
-      <library href="sparql-service/lib/log4j-1.2.16.jar"/>
-      <library href="sparql-service/lib/slf4j-api-1.6.4.jar"/>
-      <library href="sparql-service/lib/slf4j-log4j12-1.6.4.jar"/>
-      <library href="sparql-service/lib/xercesImpl-2.11.0.jar"/>
-      <library href="sparql-service/lib/xml-apis-1.4.01.jar"/>
+      <library href="../sparql-service/dist/sparql-service.jar"/>   
+      <library href="../sparql-service/lib/jena-arq-2.10.1.jar"/>
+      <library href="../sparql-service/lib/jena-core-2.10.1.jar"/>
+      <library href="../sparql-service/lib/jena-iri-0.9.6.jar"/>
+      <library href="../sparql-service/lib/jena-tdb-0.10.1.jar"/>
+      <library href="../sparql-service/lib/log4j-1.2.16.jar"/>
+      <library href="../sparql-service/lib/slf4j-api-1.6.4.jar"/>
+      <library href="../sparql-service/lib/slf4j-log4j12-1.6.4.jar"/>
+      <library href="../sparql-service/lib/xercesImpl-2.11.0.jar"/>
+      <library href="../sparql-service/lib/xml-apis-1.4.01.jar"/>
    </define>
    
    <server protocol="HTTP" address="*" port="8888">
