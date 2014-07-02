@@ -15,7 +15,11 @@
 <target name="build" depends="web"/>
 
 <target name="web">
+   <delete file="${dist.dir}/RDFa.js"/>
    <delete file="${dist.dir}/RDFa.${version.label}.js"/>
+   <delete file="${dist.dir}/RDFa.min.${version.label}.js"/>
+   <delete file="${dist.dir}/RDFaProcessor.${version.label}.js"/>
+   <delete file="${dist.dir}/RDFaProcessor.min.${version.label}.js"/>
    <concat destfile="${dist.dir}/RDFa.${version.label}.js">
    <string>/** @preserve green-turtle version ${version.label} Copyright (c) 2011-2014, R. Alexander Milowski &lt;alex@milowski.com> All rights reserved. */
 /**         
@@ -67,6 +71,7 @@
       <arg value="--js_output_file"/>
       <arg file="${dist.dir}/RDFaProcessor.min.${version.label}.js"/>
    </java>
+   <copy file="${dist.dir}/RDFa.min.${version.label}.js" tofile="${dist.dir}/RDFa.js"/>
    
 </target>
 
