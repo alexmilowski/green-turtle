@@ -413,9 +413,10 @@ DocumentData.prototype.merge = function(graph,options) {
             }
             return mapSubject ? mapSubject : u;
          };
-      for (var subject in graph) {
+      var subjects = typeof graph.subjects != "undefined" ? graph.subjects : graph;
+      for (var subject in subjects) {
          var mapSubject = subjectMap(subject);
-         var snode = graph[subject];
+         var snode = subjects[subject];
          subject = mapSubject ? mapSubject : subject;
          var target = this._data_.graph.subjects[subject];
          if (target) {
