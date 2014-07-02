@@ -29,21 +29,15 @@ function generateDownloads(manifestURI) {
    dataDoc.documentElement.setAttributeNS("http://www.w3.org/XML/1998/namespace","base",window.location.href);
    GreenTurtle.attach(dataDoc);
    console.log("Merging ...");
-   dataDoc.data.merge(turtle.graph,turtle.prefixes);
+   dataDoc.data.merge(turtle,{prefixes: turtle.prefixes});
    console.log("Processing ...");
    var manifestSubject = dataDoc.data.getSubjects("rdf:type","mf:Manifest")[0];
    var currentSubject = dataDoc.data.getValues(manifestSubject,"mf:entries")[0];
    var script = "";
    var count = 0;
    while (currentSubject!="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil") {
-      console.log(currentSubject);
       var entrySubject = dataDoc.data.getValues(currentSubject,"rdf:first")[0];
-      pos = entrySubject.lastIndexOf("/");
-      var file = entrySubject.substring(pos+1);
-      entrySubject = "http://rdfa.info/test-suite/test-cases/rdfa1.1/"+type+"/manifest#"+file.substring(0,file.indexOf("."));
-      //console.log(entrySubject);
       var actionSubject = dataDoc.data.getValues(entrySubject,"mf:action")[0];
-      //console.log(actionSubject);
       script += download(type,dataDoc.data.getValues(actionSubject,"qt:data"));
       script += download(type,dataDoc.data.getValues(actionSubject,"qt:query"));
       count++;

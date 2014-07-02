@@ -1,3 +1,4 @@
+#!/bin/bash
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0001.xhtml > tests/cache/xhtml1/0001.xhtml
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0001.sparql > tests/cache/xhtml1/0001.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0006.xhtml > tests/cache/xhtml1/0006.xhtml
@@ -148,8 +149,6 @@ curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0107.xhtml > tests/ca
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0107.sparql > tests/cache/xhtml1/0107.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0108.xhtml > tests/cache/xhtml1/0108.xhtml
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0108.sparql > tests/cache/xhtml1/0108.sparql
-curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0109.xhtml > tests/cache/xhtml1/0109.xhtml
-curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0109.sparql > tests/cache/xhtml1/0109.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0110.xhtml > tests/cache/xhtml1/0110.xhtml
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0110.sparql > tests/cache/xhtml1/0110.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0111.xhtml > tests/cache/xhtml1/0111.xhtml
@@ -360,3 +359,5 @@ curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0330.xhtml > tests/ca
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0330.sparql > tests/cache/xhtml1/0330.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0331.xhtml > tests/cache/xhtml1/0331.xhtml
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0331.sparql > tests/cache/xhtml1/0331.sparql
+curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0332.xhtml > tests/cache/xhtml1/0332.xhtml
+curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xhtml1/0332.sparql > tests/cache/xhtml1/0332.sparql

@@ -249,3 +249,5 @@ curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0330.xml > tests/cache/x
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0330.sparql > tests/cache/xml/0330.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0331.xml > tests/cache/xml/0331.xml
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0331.sparql > tests/cache/xml/0331.sparql
+curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0332.xml > tests/cache/xml/0332.xml
+curl http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0332.sparql > tests/cache/xml/0332.sparql

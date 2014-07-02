@@ -267,8 +267,6 @@ curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0254.html > tests/cach
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0254.sparql > tests/cache/html4/0254.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0255.html > tests/cache/html4/0255.html
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0255.sparql > tests/cache/html4/0255.sparql
-curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0256.html > tests/cache/html4/0256.html
-curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0256.sparql > tests/cache/html4/0256.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0257.html > tests/cache/html4/0257.html
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0257.sparql > tests/cache/html4/0257.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0258.html > tests/cache/html4/0258.html
@@ -337,3 +335,5 @@ curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0330.html > tests/cach
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0330.sparql > tests/cache/html4/0330.sparql
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0331.html > tests/cache/html4/0331.html
 curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0331.sparql > tests/cache/html4/0331.sparql
+curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0332.html > tests/cache/html4/0332.html
+curl http://rdfa.info/test-suite/test-cases/rdfa1.1/html4/0332.sparql > tests/cache/html4/0332.sparql
