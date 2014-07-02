@@ -254,9 +254,18 @@ TestHarness.prototype.generate = function(manifestURI)
       currentSubject = data.getValues(currentSubject,"rdf:rest")[0];
    }
    
-   if (this.only>=0) {
-      var save = this.entries[this.only];
-      this.entries = [ save ];
+   if (this.only) {
+      var subject = manifestSubject + "#" + this.only;
+      var save = null;
+      for (var i=0; i<this.entries.length; i++) {
+         if (this.entries[i].subject==subject) {
+            save = this.entries[i];
+         }
+      }
+      this.entries = [];
+      if (save) {
+         this.entries.push(save);
+      }
    }
    console.log(this.entries.length+" tests");
    
@@ -286,7 +295,7 @@ window.addEventListener("load",function() {
       testHarness.summary.innerHTML = "";
       testHarness.earl.innerHTML = "";
       var only = document.getElementById("only").value;
-      testHarness.only = only.length==0 ? -1 : parseInt(only);
+      testHarness.only = only.length==0 ? null : only;
       testHarness.generate(document.getElementById("source").value);
    };
    
