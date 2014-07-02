@@ -1,4 +1,0 @@
-PREFIX rdfatest: <http://rdfa.info/vocabs/rdfa-test#>
-ASK WHERE {
-  ?s a rdfatest:EqClass, rdfatest:BaseClass
-}

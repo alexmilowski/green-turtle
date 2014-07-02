@@ -1,9 +1,0 @@
-BASE <http://localhost:8888/tests/xhtml1/0232.xhtml>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-ASK WHERE {
-  <http://localhost:8888/tests/xhtml1/0232.xhtml>  foaf:maker <_:1> .
-  <_:1> rdf:type foaf:Person .
-  <_:1> foaf:name "John Doe" .
-}

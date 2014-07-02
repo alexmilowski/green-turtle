@@ -1,5 +1,0 @@
-PREFIX rdfatest: <http://rdfa.info/vocabs/rdfa-test#>
-ASK WHERE {
-  <http://localhost:8888/tests/html5/0241.html> rdfatest:eqProp rdfatest:eqProp .
-  <http://localhost:8888/tests/html5/0241.html> rdfatest:baseProp rdfatest:eqProp .
-}

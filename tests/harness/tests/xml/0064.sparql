@@ -1,3 +1,0 @@
-ASK WHERE {
-	<_:michael> <http://xmlns.com/foaf/0.1/knows> <http://digitalbazaar.com/people/manu> .
-}

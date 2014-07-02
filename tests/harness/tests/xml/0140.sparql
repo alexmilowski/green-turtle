@@ -1,4 +1,0 @@
-# This is a negative test, no triples containing "Test" should be generated. 
-ASK WHERE {
-  <http://localhost:8888/tests/xml/0140.xml> <_:invalid> "Test".
-}

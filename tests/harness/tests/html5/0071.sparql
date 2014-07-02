@@ -1,3 +1,0 @@
-ASK WHERE {
-	<http://localhost:8888/tests/html5/0071.html> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by-nd/3.0/> .
-}

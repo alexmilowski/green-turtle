@@ -1,3 +1,0 @@
-ASK WHERE {
-  <http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0263.xml> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.example.org> .
-}

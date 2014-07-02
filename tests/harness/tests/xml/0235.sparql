@@ -1,4 +1,0 @@
-PREFIX dc: <http://purl.org/dc/terms/>
-ASK WHERE {
-  <http://localhost:8888/tests/xml> dc:title "rdfagraph" .
-}

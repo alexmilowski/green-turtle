@@ -1,3 +1,0 @@
-ASK WHERE {
-	<http://localhost:8888/tests/html5/0031.html#wtw> <http://purl.org/dc/elements/1.1/identifier> <urn:ISBN:0752820907> .
-}

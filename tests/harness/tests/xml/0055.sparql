@@ -1,4 +1,0 @@
-ASK WHERE {
-	<http://localhost:8888/tests/xml/0055.xml> <http://purl.org/dc/elements/1.1/creator> <http://www-sop.inria.fr/acacia/fabien/> .
-	<http://localhost:8888/tests/xml/0055.xml> <http://purl.org/dc/elements/1.1/publisher> <http://www-sop.inria.fr/acacia/fabien/> .
-}

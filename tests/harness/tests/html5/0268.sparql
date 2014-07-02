@@ -1,8 +1,0 @@
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-ASK WHERE {
-<http://www.ivan-herman.net/foaf#me> foaf:depiction <http://www.ivan-herman.net/Images/me2003-small.png> .
-<http://www.ivan-herman.net/Images/me2003-small.png> rdf:type foaf:Image .
-}

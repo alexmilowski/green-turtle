@@ -1,4 +1,0 @@
-ASK WHERE {
-	<http://localhost:8888/tests/xml/0025.xml> <http://purl.org/dc/elements/1.1/creator> <http://localhost:8888/tests/xml/0025.xml#me> .
-	<http://localhost:8888/tests/xml/0025.xml#me> <http://xmlns.com/foaf/0.1/name> "Ben Adida" .
-}

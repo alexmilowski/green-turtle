@@ -1,3 +1,0 @@
-ASK WHERE {
- <http://localhost:8888/tests/html5/0230.html> <http://www.w3.org/1999/xhtml/vocab#license> <http://creativecommons.org/licenses/by-nc-sa/2.0/> .
-}

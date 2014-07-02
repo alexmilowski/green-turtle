@@ -1,3 +1,0 @@
-ASK WHERE {
-  <http://localhost:8888/tests/html5/0147.html> <http://example.org/test> "Test".
-}

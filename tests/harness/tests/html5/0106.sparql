@@ -1,4 +1,0 @@
-ASK WHERE {
- <http://localhost:8888/tests/html5/0106.html> <http://purl.org/dc/elements/1.1/creator>  <_:1> .
- <_:1> <http://localhost:8888/tests/html5/0106.html> <http://localhost:8888/tests/html5/manu.html> .
-}

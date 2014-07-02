@@ -1,3 +1,0 @@
-ASK WHERE {
-	<http://localhost:8888/tests/xhtml1/0063.xhtml> <http://www.w3.org/1999/xhtml/vocab#next> <http://localhost:8888/tests/xhtml1/0064.xhtml> .
-}

@@ -1,5 +1,0 @@
-# This is a negative test, there should be no triples generated.
-ASK WHERE {
-  <http://localhost:8888/tests/xhtml1/0294.xhtml> <http://www.w3.org/2003/g/data-view#> "GRDDL" .
-}
-

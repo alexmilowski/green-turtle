@@ -1,4 +1,0 @@
-# This is a negative test, no triples containing "Test" should be generated. 
-ASK WHERE {
-  <http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0140.xml> ?p "Test".
-}

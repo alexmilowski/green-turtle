@@ -1,4 +1,0 @@
-# This test should result in a 'NO', i.e. no triples should be generated from the XHTML+RDFa input document.
-ASK WHERE {
-	<http://localhost:8888/tests/xhtml1/0042.xhtml> <http://xmlns.com/foaf/0.1/img> <http://sw-app.org/img/mic_2007_01.jpg> .
-}

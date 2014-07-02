@@ -1,3 +1,0 @@
-ASK WHERE {
-	<http://rdfa.info/test-suite/test-cases/rdfa1.1/xml/0067.xml> <http://xmlns.com/foaf/0.1/topic> "Test 0067" .
-}
