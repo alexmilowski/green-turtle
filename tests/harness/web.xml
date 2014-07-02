@@ -23,8 +23,8 @@
          <route match="/sparql/query/{id}" mode="equals" class="com.milowski.sparql.QueryContextResource" ref="libraries"/>
          <content match="/test-suite" href="http://rdfa.info/test-suite"/>
          <content match="/tests" href="tests"/>
-         <content match="/build" href="../build"/>
-         <content match="/src" href="../src"/>
+         <content match="/build" href="../../build"/>
+         <content match="/src" href="../../src"/>
          <content match="/rawtests" href="../tests"/>
          <content match="" href="docs"/>
       </host>
