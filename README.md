@@ -24,7 +24,7 @@ To run the tests yourself, you will need Java and Ant installed and then do the 
     ant
     cd ../..
     </pre>
-2. Cache the test cases:
+3. Cache the test cases:
 
 
     <pre>cd tests/harness
@@ -37,12 +37,12 @@ To run the tests yourself, you will need Java and Ant installed and then do the 
     </pre>
 
 
-3. Run the server:
+4. Run the server:
 
     <pre>../server/server.sh web.xml</pre>
     
-4. Visit [http://localhost:8888/](http://localhost:8888/) in your browser.
-5. Select the markup language from the drop-down list box and hit the 'Test' button.  The system will run the test cases rather silently unless you look at the console.  Eventually, it will output a table of the status of all the test cases.
+5. Visit [http://localhost:8888/](http://localhost:8888/) in your browser.
+6. Select the markup language from the drop-down list box and hit the 'Test' button.  The system will run the test cases rather silently unless you look at the console.  Eventually, it will output a table of the status of all the test cases.
 
 
 
