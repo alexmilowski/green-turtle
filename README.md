@@ -18,6 +18,12 @@ I have submitted these issue to the working group for consideration.
 To run the tests yourself, you will need Java and Ant installed and then do the following:
 
 1. Build Green Turtle by running [ant](http://ant.apache.org) in the root directory.
+2. Build the SPARQL service:
+
+    <pre>cd tests/sparql-service/
+    ant
+    cd ../..
+    </pre>
 2. Cache the test cases:
 
 
