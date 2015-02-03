@@ -121,6 +121,48 @@ Object.defineProperty(implementation,"processors", {
    enumerable: true
 });
 
+implementation.processors["application/ld+json"] = {
+   createParser: function() {
+      return {
+         context: new RDFaGraph(),
+         parse: function(data,baseURI) {
+            var processor = new GraphJSONLDProcessor(this.graph);
+            processor.process(data);
+         },
+         errorCount: 0
+      }
+   },
+   process: function(node,options) {
+      if (!this.enabled) {
+         return;
+      }
+      var owner = node.nodeType==Node.DOCUMENT_NODE ? node : node.ownerDocument;
+      if (!owner.data) {
+         return;
+      }
+      var success = true;
+      var scripts = owner.getElementsByTagNameNS("http://www.w3.org/1999/xhtml","script");
+      for (var i=0; i<scripts.length; i++) {
+         if (scripts[i].getAttribute("type")!="application/ld+json") {
+            continue;
+         }
+         var parser = this.createParser();
+         if (options && options.errorHandler) {
+            parser.onError = options.errorHandler;
+         }
+         var base = options ? options.baseURI : null;
+         parser.parse(scripts[i].textContent,base);
+         if (parser.errorCount>0) {
+            success = false;
+         } else {
+            owner.data.merge(parser.context.subjects,{ prefixes: parser.context.prefixes});
+         }
+      }
+      return success;
+   },
+   enabled: true
+};
+
 implementation.processors["text/turtle"] = {
    createParser: function() {
       return new TurtleParser();
@@ -155,6 +197,7 @@ implementation.processors["text/turtle"] = {
    },
    enabled: true
 };
+
 
 implementation.processors["microdata"] = {
    process: function(node,options) {
