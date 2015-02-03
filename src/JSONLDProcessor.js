@@ -120,18 +120,18 @@ JSONLDProcessor.prototype.process = function(data,options) {
    var queue = [];
    queue.push(
       { current: data, 
-        context: options.context == null ? 
+        context: options==null || options.context == null ? 
                     this.emptyContext() : 
                     (typeof options.context == "string" ? this.fetchContext(options.context) : this.copyContext(options.context))
       }
    );
-   if (options.baseURI) {
+   if (options!=null && options.baseURI!=null) {
       queue[0].context.baseURI = this.parseURI(options.baseURI)
    }
-   if (options.vocabulary) {
+   if (options!=null && options.vocabulary!=null) {
       queue[0].context.vocabulary = vocabulary;
    }
-   var origin = options.origin;
+   var origin = options==null ? null : options.origin;
    var processor = this;
    while (queue.length>0) {
       var item = queue.shift();
@@ -277,7 +277,7 @@ JSONLDProcessor.prototype.makeContext = function(spec,parentContext) {
                context.language = spec[i]["@language"];
             } else if (key == "@vocab") {
                // TODO: support compact URI & terms
-               context.vocabulary = parentContext.baseURI ? parentContext.baseURI.resolve(spec[i]["@vocab"]) : this.parseURI(spec[i]["@vocab"]);
+               context.vocabulary = parentContext.baseURI ? parentContext.baseURI.resolve(spec[i]["@vocab"]) : this.parseURI(spec[i]["@vocab"]).spec;
             } else if (key == "@base") {
                var href = spec[i]["@base"];
                if (href !== null) {

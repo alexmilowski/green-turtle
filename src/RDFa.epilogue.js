@@ -126,7 +126,7 @@ implementation.processors["application/ld+json"] = {
       return {
          context: new RDFaGraph(),
          parse: function(data,baseURI) {
-            var processor = new GraphJSONLDProcessor(this.graph);
+            var processor = new GraphJSONLDProcessor(this.context);
             processor.process(data);
          },
          errorCount: 0
@@ -143,15 +143,15 @@ implementation.processors["application/ld+json"] = {
       var success = true;
       var scripts = owner.getElementsByTagNameNS("http://www.w3.org/1999/xhtml","script");
       for (var i=0; i<scripts.length; i++) {
-         if (scripts[i].getAttribute("type")!="application/ld+json") {
+         var type = scripts[i].getAttribute("type")
+         if (type!="application/ld+json" && type!="text/json-ld") {
             continue;
          }
          var parser = this.createParser();
          if (options && options.errorHandler) {
             parser.onError = options.errorHandler;
          }
-         var base = options ? options.baseURI : null;
-         parser.parse(scripts[i].textContent,base);
+         parser.parse(scripts[i].textContent,options);
          if (parser.errorCount>0) {
             success = false;
          } else {

@@ -37,6 +37,7 @@
    <file file="${src.dir}/RDFaAPI.js"/>
    <file file="${src.dir}/TurtleParser.js"/>
    <file file="${src.dir}/Microdata.js"/>
+   <file file="${src.dir}/JSONLDProcessor.js"/>
    <file file="${src.dir}/RDFa.epilogue.js"/>
    <file file="${src.dir}/RDFa.invoke.js"/>
    </concat>
