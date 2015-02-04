@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>XML Prague - Example 1</title>
+<script src="../../build/RDFa.js" type="text/javascript"></script>   
+</head>
+<body>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type" : "Person",
+  "@id"   : "http://www.milowski.com/#alex",
+  "name"  : "Alex Miłowski",
+  "email" : "alex@milowski.com",
+  "url"   : "http://www.milowski.com",
+  "organization" : {
+     "@type" : "Organization",
+     "name"  : "University of California, Berkeley",
+     "department" : {
+        "@type" : "Organization",
+        "name" : "School of Information",
+        "url"  : "http://www.ischool.berkeley.edu/"
+    }
+  }
+}
+</script>
+</body>
+</html>

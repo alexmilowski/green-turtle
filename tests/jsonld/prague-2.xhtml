@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Hybridization - Person</title>
+<script src="../../build/RDFa.js" type="text/javascript"></script>   
+</head>
+<body>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org/",
+  "@id" : "http://www.milowski.com/#alex",
+  "givenName" : "Raymond",
+  "otherName" : "Alexander",
+  "familyName" : "Miłowski",
+  "email" : "alex@milowski.com",
+  "url" : "http://www.milowski.com/",
+  "organization" : { "@id": "http://www.berkeley.edu/" }
+}
+</script>
+       
+<p vocab="http://schema.org/">
+ 
+ <span resource="http://www.milowski.com/#alex" typeof="Person">
+    <span property="name">Alex Miłowski</span>
+ </span>
+ 
+ works at 
+ <span resource="http://www.berkeley.edu/" typeof="Organization">
+    <span property="name">University of California, Berkeley</span>'s
+    <span resource="http://www.ischool.berkeley.edu/" typeof="Organization" property="department">
+       <span property="name">School of Information</span>
+    </span>
+ </span>
+</p>       
+</body>
+</html>
