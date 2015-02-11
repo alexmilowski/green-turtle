@@ -436,6 +436,16 @@ DocumentData.prototype.merge = function(graph,options) {
                      }
                      // map object subjects
                      for (var j=0; j<toAdd.length; j++) {
+                        // Do not add duplicate objects to the graph
+                        var found = null;
+                        for (var i=0; !found && i<targetPredicate.objects.length; i++) {
+                           if (targetPredicate.objects[i].value==toAdd[j].value && targetPredicate.objects[i].type==toAdd[j].type) {
+                              found = targetPredicate.objects[i];
+                           }
+                        }
+                        if (found) {
+                           continue;
+                        }
                         if (toAdd[j].type==RDFaProcessor.objectURI) {
                            toAdd[j].value = subjectMap(toAdd[j].value);
                         }
