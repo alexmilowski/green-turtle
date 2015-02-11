@@ -125,9 +125,9 @@ implementation.processors["application/ld+json"] = {
    createParser: function() {
       return {
          context: new RDFaGraph(),
-         parse: function(data,baseURI) {
+         parse: function(data,options) {
             var processor = new GraphJSONLDProcessor(this.context);
-            processor.process(data);
+            processor.process(data,options);
          },
          errorCount: 0
       }
@@ -147,18 +147,50 @@ implementation.processors["application/ld+json"] = {
          if (type!="application/ld+json" && type!="text/json-ld") {
             continue;
          }
-         var parser = this.createParser();
-         if (options && options.errorHandler) {
-            parser.onError = options.errorHandler;
-         }
-         parser.parse(scripts[i].textContent,options);
-         if (parser.errorCount>0) {
-            success = false;
+         if (scripts[i].src) {
+            this.requestRemote(scripts[i].src,owner.data,options);
          } else {
-            owner.data.merge(parser.context.subjects,{ prefixes: parser.context.prefixes});
+            var parser = this.createParser();
+            if (options && options.errorHandler) {
+               parser.onError = options.errorHandler;
+            }
+            parser.parse(scripts[i].textContent,this.copyOptions(options,scripts[i].baseURI));
+            if (parser.errorCount>0) {
+               success = false;
+            } else {
+               owner.data.merge(parser.context.subjects,{ prefixes: parser.context.prefixes});
+            }
          }
       }
       return success;
+   },
+   copyOptions: function(options,baseURI) {
+      var newOptions = {};
+      for (key in options) {
+         newOptions[key] = options[key];
+      }
+      if (baseURI) {
+         newOptions.baseURI = baseURI;
+      }
+      return newOptions;
+   },
+   requestRemote: function(uri,docdata,options) {
+      var impl = this;
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function() {
+         if (request.readyState === 4) {
+            var parser = impl.createParser();
+            if (options && options.errorHandler) {
+               parser.onError = options.errorHandler;
+            }
+            parser.parse(request.responseText,impl.copyOptions(options,uri));
+            if (parser.errorCount==0) {
+               docdata.merge(parser.context.subjects,{ prefixes: parser.context.prefixes});
+            }
+         }
+      }
+      request.open("GET",uri,true);
+      request.send();
    },
    enabled: true
 };
