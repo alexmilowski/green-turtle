@@ -423,7 +423,7 @@ RDFaPredicate.prototype.toString = function(options) {
             s += '"""'+this.objects[i].value[0].parentNode.innerHTML.replace(/"""/g,"\\\"\\\"\\\"")+'"""^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML>';
          }
       } else {
-         var l = this.objects[i].value;
+         var l = this.objects[i].value.toString();
          if (l.indexOf("\n")>=0 || l.indexOf("\r")>=0) {
             s += '"""' + l.replace(/"""/g,"\\\"\\\"\\\"") + '"""';
          } else {
