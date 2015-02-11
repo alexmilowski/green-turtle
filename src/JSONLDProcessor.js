@@ -162,7 +162,7 @@ JSONLDProcessor.prototype.process = function(data,options) {
             }
             predicate = this.expand(key,context);
             var value = item.current[key];
-            if (typeof value == "string") {
+            if (typeof value == "string" || typeof value == "number") {
                this.addTriple(origin,subject,predicate,{type: RDFaProcessor.PlainLiteralURI, value: value});
             } else {
                queue.push({ 
@@ -268,6 +268,7 @@ JSONLDProcessor.prototype.makeContext = function(spec,parentContext) {
    if (!Array.isArray(spec)) {
       spec = [spec];
    }
+   context.baseURI = parentContext.baseURI;
    for (var i=0; i<spec.length; i++) {
       var keys = Object.keys(spec[i]);
       for (var k = 0; k<keys.length; k++) {
