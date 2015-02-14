@@ -148,7 +148,7 @@ implementation.processors["application/ld+json"] = {
             continue;
          }
          if (scripts[i].src) {
-            this.requestRemote(scripts[i].src,owner.data,options);
+            this.requestRemote(scripts[i].src,owner,options);
          } else {
             var parser = this.createParser();
             if (options && options.errorHandler) {
@@ -174,7 +174,7 @@ implementation.processors["application/ld+json"] = {
       }
       return newOptions;
    },
-   requestRemote: function(uri,docdata,options) {
+   requestRemote: function(uri,owner,options) {
       var impl = this;
       var request = new XMLHttpRequest();
       request.onreadystatechange = function() {
@@ -185,7 +185,12 @@ implementation.processors["application/ld+json"] = {
             }
             parser.parse(request.responseText,impl.copyOptions(options,uri));
             if (parser.errorCount==0) {
-               docdata.merge(parser.context.subjects,{ prefixes: parser.context.prefixes});
+               owner.data.merge(parser.context.subjects,{ prefixes: parser.context.prefixes});
+               for (var subject in parser.context.subjects) {
+                  var event = owner.createEvent("CustomEvent");
+                  event.initCustomEvent("rdfa.updated",true,true,{id: subject, types: parser.context.subjects[subject].types});
+                  owner.dispatchEvent(event);
+               }
             }
          }
       }

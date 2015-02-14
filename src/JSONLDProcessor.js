@@ -191,12 +191,12 @@ JSONLDProcessor.prototype.expand = function(value,context) {
    } else {
        var term = context.terms[value];
        if (term) {
-          return term;
+          return term.uri;
        }
        var lcvalue = value.toLowerCase();
        term = context.terms[lcvalue];
        if (term) {
-          return term;
+          return term.uri;
        }
        if (context.vocabulary && !JSONLDProcessor.absoluteURIRE.exec(value)) {
           return context.vocabulary+value
@@ -213,9 +213,9 @@ JSONLDProcessor.prototype.expandCompactURI = function(value,context) {
          // blank node
          return "_:"+value.substring(colon+1);
       } else if (RDFaProcessor.NCNAME.test(prefix)) {
-         var uri = context.terms[prefix];
-         if (uri) {
-            return uri+value.substring(colon+1);
+         var term = context.terms[prefix];
+         if (term) {
+            return term.uri+value.substring(colon+1);
          }
       }
    }
@@ -291,9 +291,20 @@ JSONLDProcessor.prototype.makeContext = function(spec,parentContext) {
             var obj = spec[i][key];
             if (typeof obj == "string") {
                // TODO: expand compact IRI
-               context.terms[key] = obj
+               // TODO: what is this suppose to be?
+               console.log("String values are not supported at this time: "+key+" → "+JSON.stringify(obj));
+               context.terms[key] = { uri: obj };
             } else {
-               console.log("Object values are not supported at this time: "+key+" → "+JSON.stringify(obj));
+               var termSpec = {
+                  uri: context.vocabulary + key
+               }
+               var type = obj["@type"];
+               if (type=="@id") {
+                  termSpec.type = RDFaProcessor.objectURI
+               } else if (type) {
+                  termSpec.type = context.vocabulary + type
+               }
+               context.terms[key] = termSpec;
             }
          }
       }
