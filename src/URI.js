@@ -111,8 +111,9 @@ URIResolver.prototype.parseURI = function(uri) {
       for (; i<this.segments.length && i<otherURI.segments.length; i++) {
          if (this.segments[i]!=otherURI.segments[i]) {
             //alert(this.path+" different from "+otherURI.path+" at '"+this.segments[i]+"' vs '"+otherURI.segments[i]+"'");
+            var offset = otherURI.path.charAt(otherURI.path.length-1)=='/' ? 0 : -1;
             var relative = "";
-            for (var j=i; j<otherURI.segments.length; j++) {
+            for (var j=i; j<otherURI.segments.length+offset; j++) {
                relative += "../";
             }
             for (var j=i; j<this.segments.length; j++) {
