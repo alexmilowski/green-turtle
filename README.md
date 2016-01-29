@@ -40,9 +40,28 @@ To run the tests yourself, you will need Java and Ant installed and then do the 
 4. Run the server:
 
     <pre>../server/server.sh web.xml</pre>
-    
+
 5. Visit [http://localhost:8888/](http://localhost:8888/) in your browser.
 6. Select the markup language from the drop-down list box and hit the 'Test' button.  The system will run the test cases rather silently unless you look at the console.  Eventually, it will output a table of the status of all the test cases.
 
 
+## NPM package
 
+An [NPM package](https://www.npmjs.com/package/green-turtle) is in
+development. Right now it only exports a path to the build script so
+that it can be run within [jsdom](https://github.com/tmpvar/jsdom).
+
+
+```
+var greenTurtleScript = require('green-turtle')
+  , jsdom = require('jsdom');
+
+jsdom.env({
+  file: 'test.html',
+  scripts: [greenTurtleScript],
+  done: function(err, window) {
+    if (err) console.error(err);
+    console.log(window.document.data.graph.toString());
+  }
+});
+```
