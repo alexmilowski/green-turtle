@@ -29,8 +29,8 @@ RDFaProcessor.prototype.newBlankNode = function() {
    return "_:"+this.blankCounter;
 }
 
-RDFaProcessor.XMLLiteralURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"; 
-RDFaProcessor.HTMLLiteralURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"; 
+RDFaProcessor.XMLLiteralURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral";
+RDFaProcessor.HTMLLiteralURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML";
 RDFaProcessor.PlainLiteralURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral";
 RDFaProcessor.objectURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#object";
 RDFaProcessor.typeURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
@@ -240,10 +240,10 @@ RDFaProcessor.prototype.setHTMLContext = function() {
 RDFaProcessor.prototype.setXHTMLContext = function() {
 
    this.setInitialContext();
-   
+
    this.inXHTMLMode = true;
    this.inHTMLMode = false;
-   
+
    this.langAttributes = [ { namespaceURI: "http://www.w3.org/XML/1998/namespace", localName: "lang" },
                            { namespaceURI: null, localName: "lang" }];
 
@@ -327,7 +327,7 @@ RDFaProcessor.prototype.process = function(node,options) {
       this.setContext(node);
    } else if (node.parentNode.nodeType==Node.DOCUMENT_NODE) {
       this.setContext(node);
-   } 
+   }
    var queue = [];
    // Fix for Firefox that includes the hash in the base URI
    var removeHash = function(baseURI) {
@@ -410,12 +410,12 @@ RDFaProcessor.prototype.process = function(node,options) {
       for (var i=0; i<current.attributes.length; i++) {
          var att = current.attributes[i];
          //if (att.namespaceURI=="http://www.w3.org/2000/xmlns/") {
-         if (att.nodeName.charAt(0)=="x" && att.nodeName.indexOf("xmlns:")==0) {
+         if (att.name.charAt(0)=="x" && att.name.indexOf("xmlns:")==0) {
             if (!prefixesCopied) {
                prefixes = this.copyMappings(prefixes);
                prefixesCopied = true;
             }
-            var prefix = att.nodeName.substring(6);
+            var prefix = att.name.substring(6);
             // TODO: resolve relative?
             var ref = RDFaProcessor.trim(att.value);
             prefixes[prefix] = this.target.baseURI ? this.target.baseURI.resolve(ref) : ref;
@@ -458,7 +458,7 @@ RDFaProcessor.prototype.process = function(node,options) {
       var resourceAtt = current.getAttributeNode("resource");
       var hrefAtt = current.getAttributeNode("href");
       var inlistAtt = current.getAttributeNode("inlist");
-      
+
       var relAttPredicates = [];
       if (relAtt) {
          var values = this.tokenize(relAtt.value);
@@ -479,7 +479,7 @@ RDFaProcessor.prototype.process = function(node,options) {
             }
          }
       }
-      
+
       // Section 3.1, bullet 7
       if (this.inHTMLMode && (relAtt!=null || revAtt!=null) && propertyAtt!=null) {
          if (relAttPredicates.length==0) {
@@ -509,7 +509,7 @@ RDFaProcessor.prototype.process = function(node,options) {
          if (resourceAtt) {
             currentObjectResource = this.parseSafeCURIEOrCURIEOrURI(resourceAtt.value,prefixes,base);
          }
-         
+
          if (!currentObjectResource) {
             if (hrefAtt) {
                currentObjectResource = this.resolveAndNormalize(base,encodeURI(hrefAtt.value));
@@ -609,7 +609,7 @@ RDFaProcessor.prototype.process = function(node,options) {
             this.newSubjectOrigin(current,id);
          }
       }
-      
+
       // Sequence Step 7: generate type triple
       if (typedResource) {
          var values = this.tokenize(typeofAtt.value);
@@ -681,7 +681,7 @@ RDFaProcessor.prototype.process = function(node,options) {
       // Step 11: Current property values
       if (propertyAtt) {
          var datatype = null;
-         var content = null; 
+         var content = null;
          if (datatypeAtt) {
             datatype = datatypeAtt.value=="" ? RDFaProcessor.PlainLiteralURI : this.parseTermOrCURIEOrAbsURI(datatypeAtt.value,vocabulary,context.terms,prefixes,base);
             if (datetimeAtt && !contentAtt) {
@@ -803,7 +803,7 @@ RDFaProcessor.prototype.process = function(node,options) {
          }
       }
    }
-   
+
    if (this.inHTMLMode) {
       this.copyProperties();
    }
@@ -830,4 +830,3 @@ RDFaProcessor.prototype.push = function(parent,subject) {
       vocabulary: parent ? parent.vocabulary : this.vocabulary
    };
 };
-

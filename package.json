@@ -1,0 +1,12 @@
+{
+  "name": "green-turtle",
+  "version": "0.0.0",
+  "description": "An RDFa 1.1 implementation in JavaScript for browsers.",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "ant"
+  },
+  "keywords": [
+    "RDFa"
+  ]
+}
