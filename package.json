@@ -1,0 +1,20 @@
+{
+  "name": "green-turtle",
+  "version": "1.4.0",
+  "description": "Green Turtle",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexmilowski/green-turtle.git"
+  },
+  "keywords": [
+    "green",
+    "turtle",
+    "rdfa"
+  ],
+  "author": "Alex Milowski <alex@milowski.com> (http://www.milowski.com/)",
+  "bugs": {
+    "url": "https://github.com/alexmilowski/green-turtle/issues"
+  },
+  "homepage": "https://github.com/alexmilowski/green-turtle"
+}
