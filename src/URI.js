@@ -196,3 +196,8 @@ URIResolver.prototype.parseGeneric = function(parsed) {
    }
    parsed.isGeneric = true;
 }
+
+// CommonJS module
+if (typeof exports === "object") {
+  module.exports = URIResolver;
+}

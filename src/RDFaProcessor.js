@@ -1,3 +1,7 @@
+// CommonJS module
+if (typeof exports === "object") {
+  var URIResolver = require("./URI");
+}
 
 RDFaProcessor.prototype = new URIResolver();
 RDFaProcessor.prototype.constructor=RDFaProcessor;
@@ -186,7 +190,7 @@ RDFaProcessor.prototype.copyMappings = function(mappings) {
 
 RDFaProcessor.prototype.ancestorPath = function(node) {
    var path = "";
-   while (node && node.nodeType!=Node.DOCUMENT_NODE) {
+   while (node && node.nodeType!=9/*Node.DOCUMENT_NODE*/) {
       path = "/"+node.localName+path;
       node = node.parentNode;
    }
@@ -199,7 +203,7 @@ RDFaProcessor.prototype.setContext = function(node) {
    if (node.localName=="html" && node.getAttribute("version")=="XHTML+RDFa 1.1") {
       this.setXHTMLContext();
    } else if (node.localName=="html" || node.namespaceURI=="http://www.w3.org/1999/xhtml") {
-      if (document.doctype) {
+      if (node.ownerDocument.doctype) {
          if (document.doctype.publicId=="-//W3C//DTD XHTML+RDFa 1.0//EN" && document.doctype.systemId=="http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd") {
             console.log("WARNING: RDF 1.0 is not supported.  Defaulting to HTML5 mode.");
             this.setHTMLContext();
@@ -322,15 +326,20 @@ RDFaProcessor.prototype.process = function(node,options) {
    if (!window.console) {
       window.console = { log: function() {} };
    }*/
-   if (node.nodeType==Node.DOCUMENT_NODE) {
+   if (node.nodeType==9/*Node.DOCUMENT_NODE*/) {
       node = node.documentElement;
       this.setContext(node);
-   } else if (node.parentNode.nodeType==Node.DOCUMENT_NODE) {
+   } else if (node.parentNode.nodeType==9/*Node.DOCUMENT_NODE*/) {
       this.setContext(node);
    } 
    var queue = [];
    // Fix for Firefox that includes the hash in the base URI
    var removeHash = function(baseURI) {
+      // Fix for undefined baseURI property
+      if (!baseURI && options && options.baseURI) {
+        return options.baseURI;
+      }
+
       var hash = baseURI.indexOf("#");
       if (hash>=0) {
          baseURI = baseURI.substring(0,hash);
@@ -499,7 +508,7 @@ RDFaProcessor.prototype.process = function(node,options) {
             typedResource = newSubject;
          }
          if (!newSubject) {
-            if (current.parentNode.nodeType==Node.DOCUMENT_NODE) {
+            if (current.parentNode.nodeType==9/*Node.DOCUMENT_NODE*/) {
                newSubject = removeHash(current.baseURI);
             } else if (context.parentObject) {
                // TODO: Verify: If the xml:base has been set and the parentObject is the baseURI of the parent, then the subject needs to be the new base URI
@@ -533,7 +542,7 @@ RDFaProcessor.prototype.process = function(node,options) {
                typedResource = newSubject;
             }
          }
-         if (!newSubject && current.parentNode.nodeType==Node.DOCUMENT_NODE) {
+         if (!newSubject && current.parentNode.nodeType==9/*Node.DOCUMENT_NODE*/) {
             newSubject = removeHash(current.baseURI);
             if (typeofAtt) {
                typedResource = newSubject;
@@ -576,7 +585,7 @@ RDFaProcessor.prototype.process = function(node,options) {
             newSubject = this.resolveAndNormalize(base,encodeURI(srcAtt.value));
          }
          if (!newSubject) {
-            if (current.parentNode.nodeType==Node.DOCUMENT_NODE) {
+            if (current.parentNode.nodeType==9/*Node.DOCUMENT_NODE*/) {
                newSubject = removeHash(current.baseURI);
             } else if ((this.inXHTMLMode || this.inHTMLMode) && (current.localName=="head" || current.localName=="body")) {
                newSubject = removeHash(current.parentNode.baseURI)==context.parentObject ? removeHash(current.baseURI) : context.parentObject;
@@ -797,7 +806,7 @@ RDFaProcessor.prototype.process = function(node,options) {
          queue.unshift({ parent: current, context: context, subject: listSubject, listMapping: listMapping});
       }
       for (var child = current.lastChild; child; child = child.previousSibling) {
-         if (child.nodeType==Node.ELEMENT_NODE) {
+         if (child.nodeType==1/*Node.ELEMENT_NODE*/) {
             //console.log("Pushing child "+child.localName);
             queue.unshift({ current: child, context: childContext});
          }
@@ -831,3 +840,7 @@ RDFaProcessor.prototype.push = function(parent,subject) {
    };
 };
 
+// CommonJS module
+if (typeof exports === "object") {
+  module.exports = RDFaProcessor;
+}
