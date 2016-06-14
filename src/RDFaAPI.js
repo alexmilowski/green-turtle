@@ -535,8 +535,23 @@ Element.prototype.getFirstElementByType = function() {
 
 DocumentData.attach = function(target,options) {
 
+   var getBaseURI = function(node) {
+      var baseURI = node.baseURI;
+      if (!baseURI) {
+         var baseTags = document.getElementsByTagName("base");
+         baseURI = baseTags.length ? baseTags[0].href : document.URL;
+      }
+      return baseURI;
+   };
+
+   var baseURI = options && options.baseURI ?
+      options.baseURI :
+      getBaseURI(target.nodeType == Node.DOCUMENT_NODE ?
+         target.documentElement : target.graph);
+         
+
    Object.defineProperty(target,"data", {
-      value: new DocumentData(options && options.baseURI ? options.baseURI : target.nodeType==Node.DOCUMENT_NODE ? target.documentElement.baseURI : target.graph.baseURI),
+      value: new DocumentData(baseURI),
       writable: false,
       configurable: false,
       enumerable: true
